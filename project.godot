@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Gear",
 "language": "GDScript",
 "path": "res://Scripts/gear.gd"
+}, {
+"base": "Spatial",
+"class": "Movement",
+"language": "GDScript",
+"path": "res://Scripts/movement/movement.gd"
+}, {
+"base": "Spatial",
+"class": "VRot",
+"language": "GDScript",
+"path": "res://Scripts/movement/camera_vertical_rotation.gd"
 } ]
 _global_script_class_icons={
-"Gear": ""
+"Gear": "",
+"Movement": "",
+"VRot": ""
 }
 
 [application]

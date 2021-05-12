@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Scripts/movement/movement.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/gear.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/movement/camera_vertical_rotation.gd" type="Script" id=3]
 
 [node name="Spatial" type="Spatial"]
 
@@ -35,5 +37,11 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Camera" type="Camera" parent="."]
+[node name="Player" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, 0 )
+script = ExtResource( 1 )
+speed = 10.0
+MOUSE_SENSITIVITY = 0.25
+
+[node name="Camera" type="Camera" parent="Player"]
+script = ExtResource( 3 )

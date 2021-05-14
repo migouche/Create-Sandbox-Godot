@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/movement/movement.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/gear.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/objects/gear.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/movement/camera_vertical_rotation.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/objects/object_manager.gd" type="Script" id=4]
 
 [node name="Spatial" type="Spatial"]
 
-[node name="CSGBox" type="CSGBox" parent="."]
-script = ExtResource( 2 )
+[node name="Scene Manager" type="Node" parent="."]
+script = ExtResource( 4 )
 
-[node name="Label" type="Label" parent="CSGBox"]
-margin_right = 96.0
+[node name="Gear" type="CSGBox" parent="."]
+script = ExtResource( 2 )
+teeth_number = 10
+
+[node name="Label" type="Label" parent="Gear"]
+margin_right = 102.0
 margin_bottom = 14.0
 text = "This is a wheel"
 align = 1
@@ -21,12 +26,14 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="CSGBox2" type="CSGBox" parent="."]
+[node name="Gear2" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
 script = ExtResource( 2 )
+teeth_number = 15
+gear_type = 1
 
-[node name="Label" type="Label" parent="CSGBox2"]
-margin_right = 96.0
+[node name="Label" type="Label" parent="Gear2"]
+margin_right = 100.0
 margin_bottom = 14.0
 text = "This is a wheel"
 align = 1
@@ -45,3 +52,10 @@ MOUSE_SENSITIVITY = 0.25
 
 [node name="Camera" type="Camera" parent="Player"]
 script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

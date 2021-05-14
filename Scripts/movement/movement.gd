@@ -13,7 +13,7 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x * MOUSE_SENSITIVITY))
 	
 func _process(delta):
-	var _movement = Vector3.ZERO
+	var _movement := Vector3.ZERO
 	if Input.is_key_pressed(KEY_W):
 		_movement -= Vector3(0, 0, 1)
 	if Input.is_key_pressed(KEY_S):
@@ -22,7 +22,15 @@ func _process(delta):
 		_movement += Vector3(1, 0, 0)
 	if Input.is_key_pressed(KEY_A):
 		_movement -= Vector3(1, 0, 0)
+		
+	var _v_movement : int = 0
+	if Input.is_key_pressed(KEY_SPACE):
+		_v_movement += 1
+	if Input.is_key_pressed(KEY_SHIFT):
+		_v_movement -= 1
+		
 	translate_object_local(_movement.normalized() * speed * delta)
+	translate_object_local(Vector3(0, _v_movement, 0) * speed * delta)
 	
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()

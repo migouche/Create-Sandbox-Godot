@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "CSGBox",
 "class": "Gear",
 "language": "GDScript",
-"path": "res://Scripts/gear.gd"
+"path": "res://Scripts/objects/gear.gd"
 }, {
 "base": "Spatial",
 "class": "Movement",
